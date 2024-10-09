@@ -1,20 +1,21 @@
 #ifndef UTIL_H
 #define UTIL_H
-typedef struct{
-    int size;
-    void* head;
-}list;
-typedef struct{
-    void* next;
-    void* prev;
+typedef struct node{
+    struct node* next;
+    struct node* prev;
     void* data;
 }node;
+typedef struct{
+    int size;
+    node* head;
+}List;
 typedef struct{
     int index;
     int weight;
 }sort;
 
-void* listGet(list l, int index);
-void listAdd(list l, void* unit);
-void listDelete(list l, int index);
+void ListInit(List* l);
+void* ListGet(List* l, int index);
+void ListAdd(List* l, void* unit);
+void ListDelete(List* l, int index);
 #endif //UTIL_H
